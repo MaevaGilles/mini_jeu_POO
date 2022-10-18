@@ -22,9 +22,12 @@ class Player
         puts "#{@name} attaque le joueur #{target.name}"
         force = compute_damage
         target.gets_damage(force)
-        puts "Il lui inflige #{force} points de dommages."
+        puts "#{@name} inflige #{force} points de dommages à #{target.name}."
     end
 
+    def rounds(a)
+        a = 1
+    end
     def compute_damage
         return rand(1..6)
     end
