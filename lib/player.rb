@@ -65,26 +65,18 @@ class HumanPlayer < Player
     def search_health_pack
         search = rand(1..6)
         puts search
-
-        if search == 1
-            puts "Tu n'as rien trouvé... "
-        elsif search == 2 || 3 || 4 || 5
+        case search
+        when 1 then puts "Tu n'as rien trouvé... "
+        when 2..5
+            @life_points += 50
+            @life_points = 100 if @life_points > 100
             puts "Bravo, tu as trouvé un pack de +50 points de vie !"
-            if @life_points + 50 > 100
-                @life_points = 100
-            else
-                @life_points += 50
-            end
-        elsif search == 6
+        when 6
+            @life_points += 80
+            @life_points = 100 if @life_points > 100
             puts "Waow, tu as trouvé un pack de +80 points de vie !"
-            if @life_points + 80 > 100
-                @life_points = 100
-            else
-                @life_points += 80
-            end
         end
-
-    end
+    end 
 
 end
 
